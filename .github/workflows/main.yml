@@ -33,14 +33,14 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: wencai-results
-        path: 问财.csv
+        path: 退市股票.csv
 
     - name: Commit and Push CSV to Repository
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add -f 问财.csv
-        git commit -m 'Automatically update and commit 问财.csv' || echo "No changes to commit"
+        git add -f 退市股票.csv
+        git commit -m 'Automatically update and commit 退市股票.csv' || echo "No changes to commit"
         git push origin HEAD:${{ github.ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
