@@ -27,7 +27,7 @@ jobs:
 
     - name: Run Python script
       run: |
-        python popularity.py
+        python -c "import pywencai; res = pywencai.get(question='退市股票', loop=True); res.to_csv('问财.csv', index=False, encoding='utf-8-sig'); print(res)"
       
     - name: Upload CSV as Artifact
       uses: actions/upload-artifact@v2
