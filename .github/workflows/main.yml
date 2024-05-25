@@ -1,0 +1,35 @@
+name: Run Python Script
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # 每天运行一次，可以按需调整
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8' # 你使用的 Python 版本
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pywencai
+
+    - name: Run Python script
+      run: |
+        python -c "import pywencai; res = pywencai.get(question='退市股票', loop=True); res.to_csv('问财.csv', index=False, encoding='utf-8-sig'); print(res)"
+      
+    - name: Upload result
+      uses: actions/upload-artifact@v2
+      with:
+        name: wencai-results
+        path: 问财.csv
