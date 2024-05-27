@@ -6,7 +6,7 @@ on:
       - main # 触发动作的分支
   schedule:
     # 每天UTC时间00:00运行，按需调整
-    - cron: '0 0 * * *'
+    - cron: '0 * * * *'
 
 jobs:
   build-and-commit-csv:
