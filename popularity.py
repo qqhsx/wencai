@@ -1,7 +1,8 @@
 import pywencai
 
 # 定义变量
-query = '退市股票'
+# query = '退市股票'
+query = os.getenv('KEYWORD', '退市股票')
 filename = f'{query}.csv'
 
 # 使用变量进行查询和保存结果
