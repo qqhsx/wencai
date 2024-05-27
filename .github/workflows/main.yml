@@ -31,18 +31,8 @@ jobs:
       env:
         KEYWORD: ${{ secrets.KEYWORD }}
       
-    - name: Upload CSV as Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: wencai-results
-        path: ${{ secrets.KEYWORD }}
-
-    - name: Commit and Push CSV to Repository
+    - name: Commit changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add -f ${{ secrets.KEYWORD }}
-        git commit -m 'Automatically update and commit ${{ secrets.KEYWORD }}' || echo "No changes to commit"
-        git push origin HEAD:${{ github.ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git add .
+        git commit --allow-empty -m "spider"
+        git push
