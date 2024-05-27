@@ -1,4 +1,5 @@
 import pywencai
+import os
 
 # 定义变量
 # query = '退市股票'
