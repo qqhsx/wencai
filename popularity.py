@@ -1,14 +1,12 @@
 import pywencai
 import os
 
-# 定义变量
-# query = ''
-query = os.environ.get("KEYWORD", [])
-filename = f'{query}.csv'
+# 获取关键字列表
+keywords = os.environ.get("KEYWORDS", "").split(',')
 
-# 使用变量进行查询和保存结果
-res = pywencai.get(question=query, loop=True)
-res.to_csv(filename, index=False, encoding='utf-8-sig')
-
-# 打印结果
-print(res)
+# 遍历关键字列表进行查询和保存结果
+for keyword in keywords:
+    filename = f'{keyword}.csv'
+    res = pywencai.get(question=keyword, loop=True)
+    res.to_csv(filename, index=False, encoding='utf-8-sig')
+    print(res)
