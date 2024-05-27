@@ -24,8 +24,8 @@ jobs:
       run: |
         git config --local user.email "378600950@qq.com"
         git config --local user.name "qqhsx"
-        git remote set-url origin https://${{ github.actor }}:${{ secrets.QQNEWS_TOKEN }}@github.com/${{ github.repository }}
-        git pull --rebase
+       # git remote set-url origin https://${{ github.actor }}:${{ secrets.QQNEWS_TOKEN }}@github.com/${{ github.repository }}
+       # git pull --rebase
 
     - name: Install dependencies
       run: |
