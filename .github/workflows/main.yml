@@ -20,6 +20,13 @@ jobs:
       with:
         python-version: '3.8' # 你的 Python 版本
 
+    - name: Configure Git
+      run: |
+        git config --local user.email "378600950@qq.com"
+        git config --local user.name "qqhsx"
+        git remote set-url origin https://${{ github.actor }}:${{ secrets.QQNEWS_TOKEN }}@github.com/${{ github.repository }}
+        git pull --rebase
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
