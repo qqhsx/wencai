@@ -3,7 +3,7 @@ import os
 
 # 定义变量
 # query = '退市股票'
-query = os.environ.get("KEYWORD", []).split("&")
+query = os.environ.get("KEYWORD", [])
 filename = f'{query}.csv'
 
 # 使用变量进行查询和保存结果
