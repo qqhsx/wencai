@@ -28,8 +28,6 @@ jobs:
     - name: Run Python script
       run: |
         python popularity.py
-      env:
-        CSV_FILE_NAME: ${{ secrets.CSV_FILE_NAME }}
       
     - name: Upload CSV as Artifact
       uses: actions/upload-artifact@v2
