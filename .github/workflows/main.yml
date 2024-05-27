@@ -32,7 +32,7 @@ jobs:
 
     - name: Run Python script
       run: |
-        python popularity.py
+        python wencai.py
       env:
         KEYWORD: ${{ secrets.KEYWORD }}
       
