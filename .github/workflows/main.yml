@@ -35,6 +35,10 @@ jobs:
         python wencai.py
       env:
         KEYWORD: ${{ secrets.KEYWORD }}
+
+    - name: Run Custom data script
+      run: |
+        python popularity.py
       
     - name: Commit changes
       run: |
